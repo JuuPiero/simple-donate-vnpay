@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 bg-white p-5">
-                        <form method="post" class="donate-form">
+                        <form method="post" action="http://127.0.0.1:5000/create_payment" class="donate-form">
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="form-floating">
@@ -179,14 +179,14 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="btn-group d-flex justify-content-around">
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
-                                        <label value="10" class="btn btn-light py-3" for="btnradio1">$10</label>
+                                        <input value="10" type="radio" class="btn-check" name="amount" id="btnradio1" checked>
+                                        <label  class="btn btn-light py-3" for="btnradio1">$10</label>
 
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
-                                        <label value="20" class="btn btn-light py-3" for="btnradio2">$20</label>
+                                        <input value="20" type="radio" class="btn-check" name="amount" id="btnradio2">
+                                        <label  class="btn btn-light py-3" for="btnradio2">$20</label>
 
-                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
-                                        <label value="30" class="btn btn-light py-3" for="btnradio3">$30</label>
+                                        <input value="30" type="radio" class="btn-check" name="amount" id="btnradio3">
+                                        <label  class="btn btn-light py-3" for="btnradio3">$30</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -381,7 +381,9 @@
     <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
     <!-- Template Javascript -->
     <!-- <script src="js/main.js"></script> -->
-     <script src="js/vnpay.js"></script>
+    <!-- <script src="js/vnpay.js"></script> -->
+    <script src="js/returnCheck.js"></script>
+
 </body>
 
 </html>
