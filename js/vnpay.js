@@ -104,7 +104,6 @@ async function createPayment(data) {
     const vnp_Amount = data['amount'].replace('$', '') * 25000 * 100;
     const vnp_Locale = 'vn';
     const vnp_BankCode = data['bankcode'];
-    const vnp_Returnurl = 'https://yourdomain.com/checkout/vnpay/return'; // Thay bằng URL thật
 
     const inputData = {
         vnp_Version: '2.1.0',
@@ -115,7 +114,7 @@ async function createPayment(data) {
         vnp_CurrCode: 'VND',
         vnp_IpAddr,
         vnp_Locale,
-        vnp_OrderInfo: 'Thanh toan don hang',
+        vnp_OrderInfo: 'Donate',
         vnp_BankCode,
         vnp_OrderType,
         vnp_ReturnUrl: window.location.href,
@@ -124,9 +123,7 @@ async function createPayment(data) {
     };
     
 
-    // if (vnp_BankCode && vnp_BankCode !== '') {
-    //     inputData.vnp_BankCode = vnp_BankCode;
-    // }
+  
 
     // Sắp xếp theo key alphabet
     const sortedKeys = Object.keys(inputData).sort();
