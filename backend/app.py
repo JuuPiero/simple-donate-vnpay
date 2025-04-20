@@ -4,6 +4,7 @@ from urllib.parse import urlencode, quote_plus
 import hashlib
 import hmac
 import datetime
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -12,7 +13,7 @@ def create_payment():
     vnp_TmnCode = '1VYBIYQP'
     vnp_HashSecret = 'NOH6MBGNLQL9O9OMMFMZ2AX8NIEP50W1'
     vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'
-    vnp_Returnurl = 'http://127.0.0.1:5500/donate.html'  #thay bằng url thật
+    vnp_Returnurl = request.form.get('return') 
 
     amount = int(request.form.get('amount')) * 25000 * 100
     vnp_TxnRef = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
@@ -43,4 +44,5 @@ def create_payment():
 
     return redirect(paymentUrl)
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
